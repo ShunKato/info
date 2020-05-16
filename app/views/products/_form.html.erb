@@ -1,0 +1,71 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :品名コード %>
+    <%= form.text_field :p_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :品名 %>
+    <%= form.text_field :p_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :受注先 %>
+    <%= form.text_field :cust %>
+  </div>
+
+  <div class="field">
+    <%= form.label :仕入先 %>
+    <%= form.text_field :supp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+  <strong><写真1></strong>
+  <div class="field">
+    <% if @product.pic1? %>
+      <%= image_tag @product.pic1.url %>
+    <% else %>
+      <%= image_tag("/images/icon/no-image.png") %>
+    <% end %>
+    <%= form.file_field :pic1 %>
+  </div>
+
+  <strong><写真2></strong>
+  <div class="field">
+    <% if @product.pic2? %>
+      <%= image_tag @product.pic2.url %>
+    <% else %>
+      <%= image_tag("/images/icon/no-image.png") %>
+    <% end %>
+    <%= form.file_field :pic2 %>
+  </div>
+
+  <strong><写真3></strong>
+  <div class="field">
+    <% if @product.pic3? %>
+      <%= image_tag @product.pic3.url %>
+    <% else %>
+      <%= image_tag("/images/icon/no-image.png") %>
+    <% end %>
+    <%= form.file_field :pic3 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

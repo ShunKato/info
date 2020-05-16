@@ -1,0 +1,44 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :親ID %>
+    <%= form.text_field :product_id %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :品名コード %>
+    <%= form.text_field :s_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :品名 %>
+    <%= form.text_field :s_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :仕入先 %>
+    <%= form.text_field :s_supp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :必要数量 %>
+    <%= form.number_field :s_num %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  p_code: MyString
+  p_name: MyString
+  cust: MyString
+  supp: MyString
+  comment: MyText
+
+two:
+  p_code: MyString
+  p_name: MyString
+  cust: MyString
+  supp: MyString
+  comment: MyText
